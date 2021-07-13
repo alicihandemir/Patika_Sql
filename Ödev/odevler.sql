@@ -111,4 +111,25 @@ WHERE rental_rate = 0.99;
 SELECT COUNT (DISTINCT(replacement_cost)) FROM film
 WHERE length>150;
 
+--ÖDEV 7
+
+--7.1
+SELECT rating FROM film
+GROUP BY rating;
+
+--7.2
+SELECT replacement_cost, COUNT(*) FROM film
+GROUP BY replacement_cost
+HAVING COUNT(*)>50;
+
+--7.3
+SELECT store_id, COUNT(*) FROM customer
+GROUP BY store_id;
+
+--7.4
+SELECT country_id ,COUNT(*) FROM city
+GROUP BY country_id
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
 
