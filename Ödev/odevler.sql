@@ -291,8 +291,3 @@ INTERSECT ALL
 EXCEPT ALL
 ( SELECT first_name FROM customer );
 
-
---11.3
-(SELECT first_name FROM actor)
-EXCEPT
-(SELECT first_name FROM customer);
