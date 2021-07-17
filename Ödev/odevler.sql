@@ -244,3 +244,17 @@ INNER JOIN customer ON payment.customer_id = customer.customer_id;
 --9.3
 SELECT rental_id, first_name, last_name FROM rental
 INNER JOIN customer ON rental.customer_id = customer.customer_id;
+
+--ÖDEV 10
+
+--10.1
+SELECT city.city, country.country FROM city
+LEFT JOIN country ON city.country_id = country.country_id;
+
+--10.2
+SELECT payment.payment_id, customer.first_name, customer.last_name FROM payment
+RIGHT JOIN customer ON customer.customer_id = payment.customer_id;
+
+--10.3
+SELECT rental.rental_id, customer.first_name, customer.last_name FROM rental
+FULL JOIN customer ON customer.customer_id = rental.customer_id;
