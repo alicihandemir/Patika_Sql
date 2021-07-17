@@ -258,3 +258,41 @@ RIGHT JOIN customer ON customer.customer_id = payment.customer_id;
 --10.3
 SELECT rental.rental_id, customer.first_name, customer.last_name FROM rental
 FULL JOIN customer ON customer.customer_id = rental.customer_id;
+
+--ÖDEV 11	
+
+--11.1
+(SELECT first_name FROM actor)
+UNION 
+(SELECT first_name FROM customer);
+
+--11.2
+(SELECT first_name FROM actor)
+INTERSECT
+(SELECT first_name FROM customer);
+
+--11.3
+(SELECT first_name FROM actor)
+EXCEPT
+(SELECT first_name FROM customer);
+
+--11.4
+
+(SELECT first_name FROM actor)
+UNION ALL
+(SELECT first_name FROM customer);
+
+
+(SELECT first_name FROM actor)
+INTERSECT ALL
+(SELECT first_name FROM customer);
+
+( SELECT first_name FROM actor )
+EXCEPT ALL
+( SELECT first_name FROM customer );
+
+
+--11.3
+(SELECT first_name FROM actor)
+EXCEPT
+(SELECT first_name FROM customer);
