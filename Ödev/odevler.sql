@@ -277,7 +277,6 @@ EXCEPT
 (SELECT first_name FROM customer);
 
 --11.4
-
 (SELECT first_name FROM actor)
 UNION ALL
 (SELECT first_name FROM customer);
@@ -290,4 +289,36 @@ INTERSECT ALL
 ( SELECT first_name FROM actor )
 EXCEPT ALL
 ( SELECT first_name FROM customer );
+
+--ÖDEV 12
+
+--12.1
+SELECT COUNT(*) FROM film
+WHERE length > 
+(
+	
+SELECT AVG(length) FROM film
+	
+);
+
+--12.2
+SELECT COUNT(*) FROM film
+WHERE rental_rate = 
+(
+	
+SELECT MAX(rental_rate) FROM film
+	
+);
+
+
+--12.3
+SELECT * FROM film
+WHERE rental_rate = (SELECT MIN(rental_rate) FROM film) 
+AND 
+replacement_cost = (SELECT MIN(replacement_cost) FROM film);
+
+--12.4
+SELECT first_name, last_name FROM customer
+INNER JOIN payment ON payment.customer_id = customer.customer_id
+WHERE amount = (SELECT MAX(amount) FROM payment);
 
